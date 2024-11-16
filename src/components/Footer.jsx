@@ -8,6 +8,12 @@ const FooterContainer = styled.footer`
   text-align: center;
   padding: 20px;
   margin-top: 30px;
+  position:absolute;
+  bottom:0px;
+
+  @media (max-width: 768px) {
+		display:none;
+	}
 `;
 
 const Footer = () => (
