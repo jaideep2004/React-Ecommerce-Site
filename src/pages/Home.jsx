@@ -310,30 +310,47 @@ const Home = () => {
 			{/* Hero Section */}
 			<HeroSection>
 				<HeroOverlay />
-				<HeroContent data-aos="fade-up"
-     data-aos-duration="1300">
-					<HeroTitle >
-						Discover Your Style at <span >StyleNest</span>
+				<HeroContent data-aos='fade-up' data-aos-duration='1300'>
+					<HeroTitle>
+						Discover Your Style at <span>StyleNest</span>
 					</HeroTitle>
 					<HeroDesc>
 						Explore the latest trends in men's fashion and accessories.
 					</HeroDesc>
-					<HeroButton><Link to="/store">Shop Now</Link></HeroButton>
+					<HeroButton>
+						<Link to='/store'>Shop Now</Link>
+					</HeroButton>
 				</HeroContent>
 			</HeroSection>
 
 			{/* Featured Products */}
 			<FeaturedProductsSection>
-				<SectionTitle data-aos="fade-down"
-     data-aos-duration="1300">Featured Products</SectionTitle>
+				<SectionTitle data-aos='fade-down' data-aos-duration='1300'>
+					Featured Products
+				</SectionTitle>
 				<ProductSlider
 					dots={true}
 					infinite={true}
 					speed={800}
 					autoplay={true}
 					slidesToShow={3}
-					slidesToScroll={1} data-aos="fade-down"
-          data-aos-duration="1300">
+					slidesToScroll={1}
+					responsive={[
+						{
+							breakpoint: 768, // At screen widths <= 768px
+							settings: {
+								slidesToShow: 1, // Show one slide
+							},
+						},
+						{
+							breakpoint: 1024, // Optional: At screen widths <= 1024px
+							settings: {
+								slidesToShow: 2, // Show two slides
+							},
+						},
+					]}
+					data-aos='fade-down'
+					data-aos-duration='1300'>
 					{products.map((product) => (
 						<div key={product.id}>
 							<img src={product.image} alt={product.name} id='p-img' />
@@ -345,8 +362,9 @@ const Home = () => {
 
 			{/* Categories */}
 			<CategoriesSection>
-				<SectionTitle data-aos="fade-down"
-     data-aos-duration="1300">Shop by Categories</SectionTitle>
+				<SectionTitle data-aos='fade-down' data-aos-duration='1300'>
+					Shop by Categories
+				</SectionTitle>
 				<CategoryContainer>
 					{categories.map((category, index) => (
 						<CategoryCard key={index}>
@@ -359,8 +377,9 @@ const Home = () => {
 
 			{/* Deals of the Month */}
 			<DealsSection>
-				<SectionTitle data-aos="fade-down"
-     data-aos-duration="1300">Deals of the Month</SectionTitle>
+				<SectionTitle data-aos='fade-down' data-aos-duration='1300'>
+					Deals of the Month
+				</SectionTitle>
 				<p>Unbeatable discounts on top products. Limited time only!</p>
 				<ProductSlider
 					dots={true}
@@ -368,7 +387,21 @@ const Home = () => {
 					speed={700}
 					autoplay={true}
 					slidesToShow={3}
-					slidesToScroll={1}>
+					slidesToScroll={1}
+					responsive={[
+						{
+							breakpoint: 768, // At screen widths <= 768px
+							settings: {
+								slidesToShow: 1, // Show one slide
+							},
+						},
+						{
+							breakpoint: 1024, // Optional: At screen widths <= 1024px
+							settings: {
+								slidesToShow: 2, // Show two slides
+							},
+						},
+					]}>
 					{products2.map((product) => (
 						<div key={product.id}>
 							<img src={product.image} alt={product.name} id='p-img' />
@@ -376,14 +409,16 @@ const Home = () => {
 						</div>
 					))}
 				</ProductSlider>
-				<Button data-aos="zoom-in-up"
-     data-aos-duration="1200">View Deals</Button>
+				<Button data-aos='zoom-in-up' data-aos-duration='1200'>
+					View Deals
+				</Button>
 			</DealsSection>
 
 			{/* Testimonials */}
 			<TestimonialSection>
-				<SectionTitle data-aos="fade-down"
-     data-aos-duration="1300">What Our Customers Say</SectionTitle>
+				<SectionTitle data-aos='fade-down' data-aos-duration='1300'>
+					What Our Customers Say
+				</SectionTitle>
 				<TestimonialSlider {...testimonialSettings}>
 					{testimonials.map((testimonial) => (
 						<TestimonialCard key={testimonial.id}>
@@ -399,14 +434,17 @@ const Home = () => {
 			</TestimonialSection>
 
 			{/* Newsletter */}
-			<NewsletterSection data-aos="fade-up"
-     data-aos-duration="1300">
+			<NewsletterSection data-aos='fade-up' data-aos-duration='1300'>
 				<p>Subscribe to our newsletter for exclusive offers and updates.</p>
-				<img src='./images/e11c.png' alt='Newsletter Image' />
+				<center>
+					<img src='./images/e11c.png' alt='Newsletter Image' />
+				</center>
+
 				<div>
 					<NewsletterInput type='email' placeholder='Enter your email' />
-					<button data-aos="fade-left"
-     data-aos-duration="1300">Subscribe</button>
+					<button data-aos='fade-left' data-aos-duration='1300'>
+						Subscribe
+					</button>
 				</div>
 			</NewsletterSection>
 		</HomeContainer>

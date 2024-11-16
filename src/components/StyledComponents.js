@@ -5,6 +5,11 @@ export const Container = styled.div`
 	max-width: 1400px;
 	margin: 0 auto;
 	padding: 20px;
+
+	@media (max-width: 768px) {
+		height: 60vh;
+		// padding:0px;
+	}
 `;
 
 export const Button = styled.button`

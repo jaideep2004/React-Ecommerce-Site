@@ -1,4 +1,4 @@
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
@@ -42,8 +42,7 @@ function App() {
 	return (
 		<Router>
 			<Link to='/cart'>
-				<CartIcon data-aos="fade-left"
-     data-aos-duration="1000">
+				<CartIcon data-aos='fade-left' data-aos-duration='1000'>
 					<FaShoppingCart />
 					<span>{cart.length}</span>
 				</CartIcon>
