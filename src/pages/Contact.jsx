@@ -2,19 +2,25 @@
 import React from 'react';
 import { Container, Section, Title, Subtitle, ContactForm, FormGroup, Input, TextArea, Button, InfoSection, Icon } from '../components/StyledComponents';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Contact = () => {
+  useEffect(() => {
+		AOS.init({});
+	}, []);
   return (
     <Container>
       {/* Hero Section */}
-      <Section background="url('./images/e19.jpg') no-repeat center center / cover" color="#fff" padding="135px 0">
-        <Title>Contact Us</Title>
+      <Section background="url('./images/e19.jpg') no-repeat center center / cover" color="#fff" padding="135px 0" >
+        <Title data-aos='fade-down' data-aos-duration='1300'>Contact Us</Title >
         <Subtitle>We’d love to hear from you!</Subtitle>
       </Section>
 
       {/* Contact Form Section */}
       <Section padding="50px 0" background="#f8f9fa">
-        <Title>Get in Touch</Title>
+        <Title data-aos='fade-down' data-aos-duration='1300'>Get in Touch</Title>
         <ContactForm>
           <FormGroup>
             <Input type="text" placeholder="Your Name" required />
@@ -34,17 +40,17 @@ const Contact = () => {
         <Title>Contact Information</Title>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', marginTop: '20px',width:'80%' }}>
           <div style={{ textAlign: 'center', maxWidth: '250px', margin: '10px' }}>
-            <Icon><FaPhone size="2em" /></Icon>
+            <Icon data-aos='zoom-in' data-aos-duration='1300'><FaPhone size="2em" /></Icon>
             <Subtitle>Phone</Subtitle>
             <p>+1 (555) 123-4567</p>
           </div>
           <div style={{ textAlign: 'center', maxWidth: '250px', margin: '10px' }}>
-            <Icon><FaEnvelope size="2em" /></Icon>
+            <Icon data-aos='zoom-in' data-aos-duration='1300'><FaEnvelope size="2em" /></Icon>
             <Subtitle>Email</Subtitle>
             <p>contact@stylenest.com</p>
           </div>
           <div style={{ textAlign: 'center', maxWidth: '250px', margin: '10px' }}>
-            <Icon><FaMapMarkerAlt size="2em" /></Icon>
+            <Icon data-aos='zoom-in' data-aos-duration='1300'><FaMapMarkerAlt size="2em" /></Icon>
             <Subtitle>Location</Subtitle>
             <p>123 Fashion St, New York, NY</p>
           </div>
@@ -53,7 +59,7 @@ const Contact = () => {
 
       {/* Google Map Section */}
       <Section padding="50px 0" background="#e9ecef">
-        <Title>Our Location</Title>
+        <Title data-aos='fade-down' data-aos-duration='1300'>Our Location</Title>
         <div style={{ width: '100%', maxWidth: '1400px', height: '420px', margin: '30px auto' }}>
           <iframe
             title="map"

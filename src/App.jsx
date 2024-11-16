@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
@@ -14,8 +14,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartIcon } from "./components/StyledComponents";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+	useEffect(() => {
+		AOS.init({});
+	}, []);
 	// Load cart data from localStorage if it exists
 	const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 	const [cart, setCart] = useState(savedCart);
@@ -37,7 +42,8 @@ function App() {
 	return (
 		<Router>
 			<Link to='/cart'>
-				<CartIcon>
+				<CartIcon data-aos="fade-left"
+     data-aos-duration="1000">
 					<FaShoppingCart />
 					<span>{cart.length}</span>
 				</CartIcon>

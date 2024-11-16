@@ -6,6 +6,9 @@ import productData from "../data";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 // Styled component for the product grid
 const ProductGrid = styled.div`
@@ -19,16 +22,22 @@ const ProductGrid = styled.div`
 	}
 `;
 
-const Store = ({ addToCart }) => (
+const Store = ({ addToCart }) => {
+	useEffect(() => {
+		AOS.init({});
+	}, []);
+	return(
 	<Container>
-		<SectionTitle>Our Collection</SectionTitle>
+		<SectionTitle data-aos='zoom-in' data-aos-duration='1300'>
+			Our Collection
+		</SectionTitle>
 		<ProductGrid>
 			{productData.map((product) => (
 				<ProductCard key={product.id} product={product} addToCart={addToCart} />
 			))}
 		</ProductGrid>
 		<ToastContainer />
-	</Container>
-);
-
+		</Container>
+	)
+};
 export default Store;
